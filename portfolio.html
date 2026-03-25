@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Otu Samuel Jacob — Product & AI Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #0a0f1e;
+  --navy2:  #0e1628;
+  --navy3:  #131d35;
+  --card:   #111827;
+  --border: #1e2d4a;
+  --gold:   #c9a84c;
+  --gold2:  #e8c97a;
+  --white:  #f0f4ff;
+  --muted:  #7a8fb0;
+  --accent: #2a6ef5;
+  --accent2:#4e8bff;
+  --text:   #d8e0f0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: rgba(10,15,30,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--gold); letter-spacing: .02em;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  color: var(--muted); font-size: .82rem; font-weight: 500;
+  text-decoration: none; letter-spacing: .06em; text-transform: uppercase;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 100px 80px 80px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 70% 50%, #1a2d5a44 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, #c9a84c0d 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: .04;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content { position: relative; z-index: 1; max-width: 680px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'DM Mono', monospace; font-size: .72rem;
+  color: var(--gold); letter-spacing: .15em; text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0; animation: fadeUp .7s .2s forwards;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: 32px; height: 1px; background: var(--gold);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 900; line-height: 1.1;
+  color: var(--white); margin-bottom: 8px;
+  opacity: 0; animation: fadeUp .7s .35s forwards;
+}
+.hero h1 span { color: var(--gold); }
+.hero-title-line {
+  font-family: 'DM Sans', sans-serif; font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--muted); margin-bottom: 28px; letter-spacing: .01em;
+  opacity: 0; animation: fadeUp .7s .5s forwards;
+}
+.hero-bio {
+  font-size: .97rem; color: var(--text); line-height: 1.8;
+  max-width: 560px; margin-bottom: 40px;
+  opacity: 0; animation: fadeUp .7s .65s forwards;
+}
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .7s .8s forwards;
+}
+.btn-primary {
+  background: var(--gold); color: #0a0f1e;
+  font-size: .82rem; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; padding: 13px 28px; border-radius: 2px;
+  text-decoration: none; transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+.btn-outline {
+  border: 1px solid var(--border); color: var(--text);
+  font-size: .82rem; font-weight: 500; letter-spacing: .06em;
+  text-transform: uppercase; padding: 13px 28px; border-radius: 2px;
+  text-decoration: none; transition: border-color .2s, color .2s, transform .15s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+.hero-stats {
+  position: absolute; right: 80px; top: 50%;
+  transform: translateY(-50%); z-index: 1;
+  display: flex; flex-direction: column; gap: 32px;
+  opacity: 0; animation: fadeIn 1s 1s forwards;
+}
+.stat-item { text-align: right; }
+.stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem; font-weight: 700; color: var(--gold); line-height: 1;
+}
+.stat-lbl { font-size: .72rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
+
+/* ── SECTIONS ── */
+section { padding: 96px 80px; max-width: 1200px; margin: 0 auto; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'DM Mono', monospace; font-size: .7rem;
+  color: var(--gold); letter-spacing: .18em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700; color: var(--white); margin-bottom: 48px; line-height: 1.2;
+}
+.section-divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+  margin: 0 0 0 -80px; width: calc(100% + 160px);
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+}
+.about-text p { font-size: .97rem; color: var(--text); margin-bottom: 18px; line-height: 1.85; }
+.about-cards { display: flex; flex-direction: column; gap: 16px; }
+.about-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; padding: 20px 24px;
+  border-left: 3px solid var(--gold);
+}
+.about-card h4 { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); margin-bottom: 6px; }
+.about-card p { font-size: .88rem; color: var(--muted); }
+
+/* ── EXPERIENCE ── */
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.timeline-item {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 32px; padding: 40px 0; border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.timeline-item:last-child { border-bottom: none; }
+.tl-date {
+  font-family: 'DM Mono', monospace; font-size: .75rem;
+  color: var(--muted); padding-top: 5px; letter-spacing: .04em;
+}
+.tl-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--gold); border: 2px solid var(--navy);
+  position: absolute; left: 192px; top: 46px;
+  box-shadow: 0 0 0 4px var(--navy3);
+}
+.tl-body {}
+.tl-role {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 4px;
+}
+.tl-company {
+  font-size: .82rem; color: var(--gold); font-weight: 500;
+  letter-spacing: .04em; margin-bottom: 16px;
+}
+.tl-points { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tl-points li {
+  font-size: .9rem; color: var(--text); padding-left: 18px; position: relative; line-height: 1.65;
+}
+.tl-points li::before {
+  content: '→'; position: absolute; left: 0; color: var(--gold); font-size: .8rem;
+}
+.tl-tag {
+  display: inline-block; font-size: .65rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 2px; margin-top: 12px;
+  background: #c9a84c18; color: var(--gold); border: 1px solid #c9a84c33;
+}
+
+/* ── SKILLS ── */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.skill-cat {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; padding: 28px 24px;
+  transition: border-color .2s, transform .2s;
+}
+.skill-cat:hover { border-color: var(--gold); transform: translateY(-4px); }
+.skill-cat h4 {
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--gold); margin-bottom: 16px; font-family: 'DM Mono', monospace;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag {
+  font-size: .75rem; color: var(--muted);
+  background: var(--navy3); border: 1px solid var(--border);
+  padding: 4px 10px; border-radius: 2px; letter-spacing: .02em;
+}
+
+/* ── PROJECTS ── */
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.project-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; padding: 32px 28px;
+  transition: border-color .25s, transform .2s;
+  position: relative; overflow: hidden;
+}
+.project-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.project-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.project-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 900; color: var(--border);
+  position: absolute; top: 20px; right: 24px; line-height: 1;
+}
+.project-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; color: var(--white); margin-bottom: 10px;
+}
+.project-card p { font-size: .88rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+.project-metric {
+  font-family: 'DM Mono', monospace;
+  font-size: .78rem; color: var(--gold); letter-spacing: .04em;
+}
+
+/* ── EDUCATION ── */
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+.edu-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; padding: 28px 24px;
+}
+.edu-card .deg {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; color: var(--white); margin-bottom: 6px;
+}
+.edu-card .school { font-size: .85rem; color: var(--gold); margin-bottom: 4px; }
+.edu-card .year { font-family: 'DM Mono', monospace; font-size: .75rem; color: var(--muted); }
+.cert-title {
+  font-size: .82rem; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--muted); margin-bottom: 16px; font-family: 'DM Mono', monospace;
+}
+.cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.cert-item {
+  background: var(--navy3); border: 1px solid var(--border);
+  border-radius: 3px; padding: 12px 14px;
+  font-size: .8rem; color: var(--text); line-height: 1.5;
+}
+.cert-item span { display: block; font-size: .68rem; color: var(--muted); margin-top: 2px; }
+
+/* ── CONTACT ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.contact-text p { font-size: .97rem; color: var(--text); line-height: 1.85; margin-bottom: 32px; }
+.contact-links { display: flex; flex-direction: column; gap: 14px; }
+.contact-link {
+  display: flex; align-items: center; gap: 14px;
+  font-size: .9rem; color: var(--text); text-decoration: none;
+  padding: 14px 18px; background: var(--card);
+  border: 1px solid var(--border); border-radius: 3px;
+  transition: border-color .2s, color .2s;
+}
+.contact-link:hover { border-color: var(--gold); color: var(--gold); }
+.contact-link .icon { font-size: 1.1rem; }
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.form-group input, .form-group textarea {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 3px; padding: 12px 14px;
+  color: var(--white); font-family: 'DM Sans', sans-serif; font-size: .9rem;
+  outline: none; transition: border-color .2s;
+  resize: none;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+.form-submit {
+  background: var(--gold); color: #0a0f1e;
+  border: none; border-radius: 2px; padding: 14px 28px;
+  font-family: 'DM Sans', sans-serif; font-size: .82rem;
+  font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  cursor: pointer; transition: background .2s; align-self: flex-start;
+}
+.form-submit:hover { background: var(--gold2); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 80px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: .78rem; color: var(--muted);
+}
+footer a { color: var(--gold); text-decoration: none; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 24px 60px; }
+  .hero-stats { display: none; }
+  section { padding: 64px 24px; }
+  .about-grid, .contact-grid, .projects-grid, .edu-grid,
+  .skills-grid { grid-template-columns: 1fr; }
+  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+  .tl-dot { display: none; }
+  footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+  .cert-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Otu Samuel Jacob</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Product &amp; AI Leader</div>
+    <h1>Otu Samuel <span>Jacob</span></h1>
+    <div class="hero-title-line">Digital Product Manager &nbsp;·&nbsp; Fintech &nbsp;·&nbsp; AI &amp; Data</div>
+    <p class="hero-bio">
+      Results-driven product leader with a decade of experience delivering digital banking solutions across mobile, POS, and internet banking. Currently deepening expertise in Data Science and AI to build the next generation of intelligent financial products.
+    </p>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-val">1M+</div>
+      <div class="stat-lbl">Users Acquired</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">120%</div>
+      <div class="stat-lbl">YoY Transaction Growth</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">300%</div>
+      <div class="stat-lbl">MoM Volume Growth</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About Me</div>
+  <div class="section-title">Building Products That<br>Move the Needle</div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>
+        I am a Digital Product and Project Management professional based in Liverpool, UK, with a strong track record in mobile banking, POS acquiring, and internet banking across leading financial institutions in Nigeria.
+      </p>
+      <p>
+        My approach combines rigorous business analysis with agile delivery — translating complex stakeholder requirements into digital products that customers love and regulators trust. I have led teams from concept through launch, consistently delivering measurable growth.
+      </p>
+      <p>
+        I am currently pursuing an MSc in Data Science &amp; Big Data Analytics at Wrexham University, integrating machine learning and AI capabilities into my product strategy toolkit to stay ahead in an increasingly data-driven industry.
+      </p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <h4>Product Philosophy</h4>
+        <p>User outcomes first. Data-informed decisions. Compliance-conscious delivery.</p>
+      </div>
+      <div class="about-card">
+        <h4>Current Focus</h4>
+        <p>AI-augmented product management · Generative AI applications in fintech · Data-driven growth strategies.</p>
+      </div>
+      <div class="about-card">
+        <h4>Location</h4>
+        <p>Liverpool, United Kingdom — open to remote and hybrid opportunities globally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Work Experience</div>
+  <div class="section-title">Career Timeline</div>
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="tl-date">Jan 2023 — Present</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-role">Product / Project Lead, Mobile Banking</div>
+        <div class="tl-company">TAJBank Limited &nbsp;·&nbsp; Abuja, Nigeria</div>
+        <ul class="tl-points">
+          <li>Led development and rollout of the MyTAJ mobile app, achieving <strong>35% user growth</strong> within six months.</li>
+          <li>Scaled the customer base to over <strong>one million users</strong>, strengthening TAJBank's digital footprint.</li>
+          <li>Delivered a <strong>120% year-on-year increase</strong> in transaction volume and value through feature upgrades.</li>
+          <li>Introduced a proactive support framework that reduced downtime and improved service reliability.</li>
+          <li>Oversaw app redesign to align with international digital banking standards.</li>
+        </ul>
+        <span class="tl-tag">Mobile Banking · Product Leadership · UX</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-date">Jan 2022 — Dec 2023</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-role">Product Manager, POS Acquiring</div>
+        <div class="tl-company">Ecobank Nigeria &nbsp;·&nbsp; Lagos, Nigeria</div>
+        <ul class="tl-points">
+          <li>Deployed instant notification and virtual account APIs, improving transaction efficiency and customer experience.</li>
+          <li>Achieved <strong>100% revenue success</strong> on the Lagos ADIRE project, deploying 55 POS terminals.</li>
+          <li>Strengthened Ecobank's POS acquiring position through improved merchant support and engagement.</li>
+          <li>Enhanced compliance and risk frameworks to ensure adherence to regulatory standards.</li>
+        </ul>
+        <span class="tl-tag">POS Acquiring · API Integration · Compliance</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-date">Jan 2020 — Dec 2022</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-role">Digital Product Manager</div>
+        <div class="tl-company">FSDH Merchant Bank &nbsp;·&nbsp; Lagos, Nigeria</div>
+        <ul class="tl-points">
+          <li>Introduced API-as-a-Service, opening new revenue channels for institutional clients.</li>
+          <li>Enabled POS expansion achieving <strong>300% month-on-month growth</strong> in transaction volumes.</li>
+          <li>Improved state tax collection through digital integration and automation.</li>
+          <li>Enhanced mobile and internet banking platforms, increasing adoption and user satisfaction.</li>
+        </ul>
+        <span class="tl-tag">POS · QR · Internet Banking · Mobile Banking</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Core Competencies</div>
+  <div class="section-title">Skills &amp; Expertise</div>
+  <div class="skills-grid">
+    <div class="skill-cat reveal">
+      <h4>Product Management</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Product Roadmapping</span>
+        <span class="skill-tag">Product Discovery</span>
+        <span class="skill-tag">UX Optimisation</span>
+        <span class="skill-tag">Performance Metrics</span>
+        <span class="skill-tag">Product Strategy</span>
+        <span class="skill-tag">Sprint Planning</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <h4>Project & Delivery</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Agile / Scrum</span>
+        <span class="skill-tag">Stakeholder Management</span>
+        <span class="skill-tag">Business Analysis</span>
+        <span class="skill-tag">Process Mapping</span>
+        <span class="skill-tag">Change Management</span>
+        <span class="skill-tag">Risk Management</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <h4>Data & AI</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Data Analytics</span>
+        <span class="skill-tag">Business Intelligence</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Generative AI</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Big Data</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <h4>Technology</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">API Integration</span>
+        <span class="skill-tag">Mobile Banking</span>
+        <span class="skill-tag">POS Systems</span>
+        <span class="skill-tag">Internet Banking</span>
+        <span class="skill-tag">Digital Payments</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <h4>Leadership</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Cross-Functional Teams</span>
+        <span class="skill-tag">Team Management</span>
+        <span class="skill-tag">Strategic Planning</span>
+        <span class="skill-tag">Communication</span>
+        <span class="skill-tag">Problem Solving</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <h4>Compliance & Finance</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Regulatory Compliance</span>
+        <span class="skill-tag">AML / CTF</span>
+        <span class="skill-tag">Financial Products</span>
+        <span class="skill-tag">Merchant Acquiring</span>
+        <span class="skill-tag">Digital Banking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Selected Projects</div>
+  <div class="section-title">Delivered Impact</div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-num">01</div>
+      <h3>MyTAJ Mobile Banking App</h3>
+      <p>Led end-to-end product lifecycle for TAJBank's flagship mobile app — from strategy and design through launch and growth. Oversaw app redesign aligned to international digital banking standards.</p>
+      <div class="project-metric">↑ 35% user growth · 1M+ customers · 120% YoY transaction volume</div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">02</div>
+      <h3>Lagos ADIRE POS Deployment</h3>
+      <p>Managed the full deployment of 55 POS terminals for the Lagos ADIRE project at Ecobank, supporting local merchant communities with digital payment infrastructure.</p>
+      <div class="project-metric">✓ 100% revenue success · Merchant adoption &amp; engagement uplift</div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">03</div>
+      <h3>API-as-a-Service Platform</h3>
+      <p>Introduced API-as-a-Service at FSDH Merchant Bank, unlocking new institutional revenue channels and enabling rapid digital integration for partners and clients.</p>
+      <div class="project-metric">↑ 300% MoM POS transaction growth · New revenue streams opened</div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">04</div>
+      <h3>NYC Airbnb Geospatial Analysis</h3>
+      <p>Academic project applying Python, Folium, and Matplotlib to analyse 48,895 Airbnb listings across NYC's five boroughs — revealing pricing patterns, room-type distributions, and spatial inequalities.</p>
+      <div class="project-metric">Tools: Python · Leaflet.js · Matplotlib · Data Science (MSc)</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Education &amp; Certifications</div>
+  <div class="section-title">Academic Background</div>
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <div class="deg">MSc Data Science &amp; Big Data Analytics</div>
+      <div class="school">Wrexham University, UK</div>
+      <div class="year">In Progress — Expected 2026</div>
+    </div>
+    <div class="edu-card">
+      <div class="deg">B.Sc. Economics (Second Class Upper)</div>
+      <div class="school">Oduduwa University, Osun State, Nigeria</div>
+      <div class="year">Graduated 2017</div>
+    </div>
+  </div>
+  <div class="cert-title">Professional Certifications</div>
+  <div class="cert-grid reveal">
+    <div class="cert-item">Practical Application of Gen AI for Project Managers <span>PMI · 2025</span></div>
+    <div class="cert-item">Technical Product Management <span>Treford · 2025</span></div>
+    <div class="cert-item">APIs for Product Managers <span>Treford · 2025</span></div>
+    <div class="cert-item">Accenture PM Simulation <span>Accenture North America · 2025</span></div>
+    <div class="cert-item">Product Discovery Micro-Certification <span>Product School · 2024</span></div>
+    <div class="cert-item">Advanced AML &amp; CTF <span>CIBN · 2024</span></div>
+    <div class="cert-item">Agile Product Owner Foundations <span>LinkedIn Learning · 2024</span></div>
+    <div class="cert-item">Scrum Fundamentals Certified <span>SCRUMstudy · 2023</span></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="section-title">Let's Connect</div>
+  <div class="contact-grid">
+    <div class="contact-text">
+      <p>Whether you are looking for an experienced product leader, exploring collaboration opportunities, or simply want to connect — I would love to hear from you.</p>
+      <div class="contact-links">
+        <a href="mailto:otujacob4@gmail.com" class="contact-link">
+          <span class="icon">✉</span> otujacob4@gmail.com
+        </a>
+        <a href="tel:+447827210946" class="contact-link">
+          <span class="icon">✆</span> +44 (0)78 2721 0946
+        </a>
+        <a href="https://www.linkedin.com/in/otu-jacob" target="_blank" class="contact-link">
+          <span class="icon">in</span> linkedin.com/in/otu-jacob
+        </a>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" placeholder="How can I help?">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="5" placeholder="Your message..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2025 Otu Samuel Jacob. All rights reserved.</div>
+  <div>Built for growth &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/otu-jacob" target="_blank">LinkedIn</a></div>
+</footer>
+
+<script>
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// Nav active
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+  });
+});
+
+// Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#2a6ef5';
+  btn.style.color = '#fff';
+  setTimeout(() => {
+    btn.textContent = 'Send Message';
+    btn.style.background = '';
+    btn.style.color = '';
+    e.target.reset();
+  }, 3000);
+}
+</script>
+</body>
+</html>
