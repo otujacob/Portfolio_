@@ -531,6 +531,16 @@ section[id] { box-shadow: 0 0 0 100vmax var(--navy); clip-path: inset(0 -100vmax
   transition: background .2s, color .2s;
 }
 .project-links a:hover { background: var(--gold); color: #fff; }
+.cert-group { background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 12px; }
+.cert-group summary {
+  cursor: pointer; list-style: none; display: flex; align-items: center; gap: 12px;
+  padding: 18px 22px; font-weight: 600; color: var(--white);
+}
+.cert-group summary::-webkit-details-marker { display: none; }
+.cert-group summary b { font: 500 .75rem 'DM Mono', monospace; color: var(--gold); background: #0f766e14; padding: 2px 10px; border-radius: 999px; }
+.cert-group summary::after { content: '+'; margin-left: auto; font-size: 1.3rem; color: var(--coral); }
+.cert-group[open] summary::after { content: '−'; }
+.cert-group .cert-grid { padding: 0 16px 16px; }
 </style>
 </head>
 <body>
@@ -917,16 +927,83 @@ section[id] { box-shadow: 0 0 0 100vmax var(--navy); clip-path: inset(0 -100vmax
     </div>
   </div>
   <div class="cert-title">Professional Certifications</div>
-  <div class="cert-grid reveal">
-    <div class="cert-item">Practical Application of Gen AI for Project Managers <span>PMI · 2025</span></div>
-    <div class="cert-item">Technical Product Management <span>Treford · 2025</span></div>
-    <div class="cert-item">APIs for Product Managers <span>Treford · 2025</span></div>
-    <div class="cert-item">Accenture PM Simulation <span>Accenture North America · 2025</span></div>
-    <div class="cert-item">Product Discovery Micro-Certification <span>Product School · 2024</span></div>
-    <div class="cert-item">Advanced AML &amp; CTF <span>CIBN · 2024</span></div>
-    <div class="cert-item">Agile Product Owner Foundations <span>LinkedIn Learning · 2024</span></div>
-    <div class="cert-item">Scrum Fundamentals Certified <span>SCRUMstudy · 2023</span></div>
-  </div>
+  <details class="cert-group" open>
+    <summary>Data, AI &amp; Analytics <b>18</b></summary>
+    <div class="cert-grid">
+      <div class="cert-item">Intermediate SQL <span>DataCamp · Aug 2026</span></div>
+      <div class="cert-item">Introduction to SQL <span>DataCamp · Aug 2026</span></div>
+      <div class="cert-item">Understanding Data Engineering <span>DataCamp · Aug 2026</span></div>
+      <div class="cert-item">Certified Data Scientist <span>TS Academy · Jul 2026</span></div>
+      <div class="cert-item">Python Data Structures and Algorithms <span>LinkedIn · Dec 2025</span></div>
+      <div class="cert-item">Advanced Algorithmic Thinking with Python <span>LinkedIn · Dec 2025</span></div>
+      <div class="cert-item">Introduction to Data Science <span>LinkedIn · Dec 2025</span></div>
+      <div class="cert-item">Data Science Job Simulation, British Airways <span>Forage · Oct 2025</span></div>
+      <div class="cert-item">Data &amp; Event Tracking for Fintech Products <span>Treford · Sep 2025</span></div>
+      <div class="cert-item">Practical Application of Gen AI for Project Managers <span>Project Management Institute · Mar 2025</span></div>
+      <div class="cert-item">Data Analytics <span>Hibreed · Mar 2022</span></div>
+      <div class="cert-item">Introduction to Business Analytics <span>LinkedIn · Sep 2022</span></div>
+      <div class="cert-item">Learning Data Analytics <span>LinkedIn · Aug 2021</span></div>
+      <div class="cert-item">Excel: Economic Analysis and Data Analytics <span>LinkedIn · Aug 2021</span></div>
+      <div class="cert-item">Data Analytics and Business Intelligence <span>Dataleum · Jul 2021</span></div>
+      <div class="cert-item">HR Analytics Course with R <span>Udemy · Oct 2020</span></div>
+      <div class="cert-item">Applied AI for Human Resources <span>LinkedIn · Aug 2020</span></div>
+      <div class="cert-item">Human Resources: Using Metrics to Drive HR Strategy <span>LinkedIn · Aug 2020</span></div>
+    </div>
+  </details>
+  <details class="cert-group">
+    <summary>Product &amp; Project Management <b>13</b></summary>
+    <div class="cert-grid">
+      <div class="cert-item">Technical Product Management <span>Treford · Sep 2025</span></div>
+      <div class="cert-item">APIs for Product Managers <span>Treford · Sep 2025</span></div>
+      <div class="cert-item">Quality Assurance Essentials for Product Managers <span>Treford · Sep 2025</span></div>
+      <div class="cert-item">API Product Management Masterclass <span>APIsec University · Feb 2025</span></div>
+      <div class="cert-item">Project Management Job Simulation, Accenture North America <span>Forage · Jan 2025</span></div>
+      <div class="cert-item">Product Discovery Micro-Certification (PDC) <span>Product School · Dec 2024</span></div>
+      <div class="cert-item">Mobile App Product Management <span>UXCam · Nov 2024</span></div>
+      <div class="cert-item">Technical Product Management <span>LinkedIn · Nov 2024</span></div>
+      <div class="cert-item">Agile Product Owner Role: Foundations <span>LinkedIn · Nov 2024</span></div>
+      <div class="cert-item">Customer Engagement &amp; Retention <span>Netcore · Oct 2024</span></div>
+      <div class="cert-item">ISO 37500:2014 Guidance on Outsourcing <span>Standards and Best Practice · Sep 2024</span></div>
+      <div class="cert-item">Product Management Level 1 <span>EntryLevel · Nov 2023</span></div>
+      <div class="cert-item">Scrum Fundamentals Certified (SFC) <span>VMEdu · Dec 2022</span></div>
+    </div>
+  </details>
+  <details class="cert-group">
+    <summary>Banking, Payments &amp; Compliance <b>11</b></summary>
+    <div class="cert-grid">
+      <div class="cert-item">Mastering the DPO Function: Data Protection Governance <span>DATAPRO Limited · Jun 2025</span></div>
+      <div class="cert-item">The Future of Payment Technologies <span>University of Michigan · Oct 2024</span></div>
+      <div class="cert-item">Payments Masterclass <span>Centre for Finance, Technology and Entrepreneurship · Oct 2024</span></div>
+      <div class="cert-item">Advanced Anti-Money Laundering &amp; Countering Terrorist Financing <span>CIBN · Jul 2024</span></div>
+      <div class="cert-item">Group Anti-Money Laundering Training <span>Ecobank Nigeria · Nov 2023</span></div>
+      <div class="cert-item">Professional Conduct and Ethics Certification <span>CIBN · Sep 2022</span></div>
+      <div class="cert-item">Accounting Fundamentals <span>Corporate Finance Institute · Jun 2022</span></div>
+      <div class="cert-item">Conduct Risk <span>First Bank of Nigeria · May 2021</span></div>
+      <div class="cert-item">Banking Ethics &amp; Compliance <span>First Bank of Nigeria · May 2021</span></div>
+      <div class="cert-item">Certified Anti-Money Laundering Specialist (CAMLS) <span>Page Financials · Jul 2019</span></div>
+      <div class="cert-item">ACIBN <span>CIBN · In view</span></div>
+    </div>
+  </details>
+  <details class="cert-group">
+    <summary>Technology &amp; Security <b>2</b></summary>
+    <div class="cert-grid">
+      <div class="cert-item">Software Testing <span>Codar Tech Africa · Aug 2025</span></div>
+      <div class="cert-item">Elastic Security for SIEM (On-Demand) <span>Elastic · Aug 2025</span></div>
+    </div>
+  </details>
+  <details class="cert-group">
+    <summary>Leadership &amp; Professional Skills <b>8</b></summary>
+    <div class="cert-grid">
+      <div class="cert-item">Leading a High Performance Team <span>Amana Legal Consults · Jul 2025</span></div>
+      <div class="cert-item">Virtual Volunteers, Operation Scotney <span>USW Careers · Jan 2025</span></div>
+      <div class="cert-item">Innovative Customer Service Techniques <span>LinkedIn · Aug 2023</span></div>
+      <div class="cert-item">Sales and Customer Experience Professional <span>Dreamswork Africa · Jul 2023</span></div>
+      <div class="cert-item">Accelerated Soft Skills Training <span>Jobberman Nigeria · Jun 2022</span></div>
+      <div class="cert-item">Sales Negotiation <span>LinkedIn · Aug 2021</span></div>
+      <div class="cert-item">FirstBank/Jobberman Soft Skills Course <span>Jobberman Nigeria · Jan 2021</span></div>
+      <div class="cert-item">Finishing School <span>LACE Africa · Dec 2018</span></div>
+    </div>
+  </details>
 </section>
 
 <div class="section-divider"></div>
