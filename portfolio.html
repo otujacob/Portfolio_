@@ -8,18 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy:   #0a0f1e;
-  --navy2:  #0e1628;
-  --navy3:  #131d35;
-  --card:   #111827;
-  --border: #1e2d4a;
-  --gold:   #c9a84c;
-  --gold2:  #e8c97a;
-  --white:  #f0f4ff;
-  --muted:  #7a8fb0;
-  --accent: #2a6ef5;
-  --accent2:#4e8bff;
-  --text:   #d8e0f0;
+  --navy:   #fbf8f3;
+  --navy2:  #ffffff;
+  --navy3:  #f2ede4;
+  --card:   #ffffff;
+  --border: #e6dfd2;
+  --gold:   #0f766e;
+  --gold2:  #0b5a54;
+  --coral:  #e0613f;
+  --white:  #14213d;
+  --muted:  #5d6879;
+  --accent: #0f766e;
+  --accent2:#e0613f;
+  --text:   #36415a;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +43,7 @@ body {
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 1000;
-  background: rgba(10,15,30,0.92);
+  background: rgba(251,248,243,0.88);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   padding: 0 48px;
@@ -72,8 +73,8 @@ nav {
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 70% 50%, #1a2d5a44 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 10% 80%, #c9a84c0d 0%, transparent 60%);
+    radial-gradient(ellipse 70% 60% at 70% 50%, #0f766e1f 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, #e0613f1c 0%, transparent 60%);
 }
 .hero-grid {
   position: absolute; inset: 0; z-index: 0; opacity: .04;
@@ -117,7 +118,7 @@ nav {
   opacity: 0; animation: fadeUp .7s .8s forwards;
 }
 .btn-primary {
-  background: var(--gold); color: #0a0f1e;
+  background: var(--gold); color: #fff;
   font-size: .82rem; font-weight: 600; letter-spacing: .06em;
   text-transform: uppercase; padding: 13px 28px; border-radius: 2px;
   text-decoration: none; transition: background .2s, transform .15s;
@@ -160,7 +161,7 @@ section { padding: 96px 80px; max-width: 1200px; margin: 0 auto; }
 .section-divider {
   width: 100%; height: 1px;
   background: linear-gradient(90deg, var(--border), transparent);
-  margin: 0 0 0 -80px; width: calc(100% + 160px);
+  margin: 0;
 }
 
 /* ── ABOUT ── */
@@ -215,7 +216,7 @@ section { padding: 96px 80px; max-width: 1200px; margin: 0 auto; }
   display: inline-block; font-size: .65rem; font-weight: 600;
   letter-spacing: .08em; text-transform: uppercase;
   padding: 3px 10px; border-radius: 2px; margin-top: 12px;
-  background: #c9a84c18; color: var(--gold); border: 1px solid #c9a84c33;
+  background: #0f766e12; color: var(--gold); border: 1px solid #0f766e33;
 }
 
 /* ── SKILLS ── */
@@ -265,6 +266,10 @@ section { padding: 96px 80px; max-width: 1200px; margin: 0 auto; }
   font-family: 'DM Mono', monospace;
   font-size: .78rem; color: var(--gold); letter-spacing: .04em;
 }
+
+.projects-subtitle { margin-top: 48px; }
+.dissertation-card .tl-points { margin-bottom: 16px; }
+.dissertation-card .dissertation-results { color: var(--text); }
 
 /* ── EDUCATION ── */
 .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
@@ -316,7 +321,7 @@ section { padding: 96px 80px; max-width: 1200px; margin: 0 auto; }
 }
 .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
 .form-submit {
-  background: var(--gold); color: #0a0f1e;
+  background: var(--gold); color: #fff;
   border: none; border-radius: 2px; padding: 14px 28px;
   font-family: 'DM Sans', sans-serif; font-size: .82rem;
   font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
@@ -349,10 +354,6 @@ footer a { color: var(--gold); text-decoration: none; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  .hero { padding: 100px 24px 60px; }
-  .hero-stats { display: none; }
   section { padding: 64px 24px; }
   .about-grid, .contact-grid, .projects-grid, .edu-grid,
   .skills-grid { grid-template-columns: 1fr; }
@@ -362,94 +363,270 @@ footer a { color: var(--gold); text-decoration: none; }
   .cert-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
 }
+
+/* ── STORY LAYER ── */
+section[id], .hero { scroll-margin-top: 64px; }
+::selection { background: var(--gold); color: var(--navy); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold2); outline-offset: 3px; }
+.progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 100%; z-index: 1100;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+  transform-origin: left; transform: scaleX(0);
+}
+.nav-logo { text-decoration: none; }
+.nav-toggle { display: none; }
+.nav-links a.active { color: var(--gold); }
+.hero-promise {
+  font-family: 'Playfair Display', serif; font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  color: var(--white); line-height: 1.4; margin-bottom: 20px;
+  opacity: 0; animation: fadeUp .7s .6s forwards;
+}
+.hero-promise em { color: var(--gold2); }
+.btn-primary, .btn-outline { border-radius: 999px; }
+.about-card, .skill-cat, .project-card, .edu-card, .contact-link, .demo-card { border-radius: 14px; }
+.about-card, .edu-card, .project-card, .skill-cat {
+  background: var(--card);
+}
+.project-card:hover, .skill-cat:hover { box-shadow: 0 18px 40px #14213d1a; }
+.journey {
+  list-style: none; display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 64px;
+}
+.journey li { border-top: 2px solid var(--border); padding-top: 24px; position: relative; }
+.journey li::before {
+  content: ''; position: absolute; top: -7px; left: 0; width: 12px; height: 12px;
+  border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 5px var(--navy);
+}
+.journey strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--white); }
+.journey p { font-size: .88rem; color: var(--muted); }
+.j-year { font-family: 'DM Mono', monospace; font-size: .72rem; color: var(--gold); letter-spacing: .1em; }
+.chapter-intro { max-width: 640px; margin: -24px 0 40px; font-size: 1.05rem; }
+.demo-switch {
+  display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 16px;
+  background: var(--navy3); border: 1px solid var(--border); border-radius: 999px;
+}
+.demo-switch button {
+  border: 0; background: transparent; color: var(--muted); cursor: pointer;
+  font: 600 .8rem 'DM Sans', sans-serif; padding: 9px 18px; border-radius: 999px;
+  transition: background .25s, color .25s;
+}
+.demo-switch button[aria-pressed="true"] { background: var(--gold); color: var(--navy); }
+.demo-card { background: var(--card); border: 1px solid var(--border); padding: 28px; min-height: 290px; }
+.demo-head {
+  display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center;
+  font-family: 'DM Mono', monospace; font-size: .8rem; color: var(--white);
+  padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--border);
+}
+.demo-flag { color: #ffb4a8; background: #ff6b5718; border: 1px solid #ff6b5755; padding: 2px 10px; border-radius: 999px; }
+.demo-score { color: var(--gold); }
+.demo-plain p { color: var(--muted); }
+.demo-explained { animation: fadeUp .45s both; }
+.demo-bars { list-style: none; margin: 18px 0; display: grid; gap: 10px; }
+.demo-bars li { display: grid; grid-template-columns: 150px 1fr 52px; gap: 12px; align-items: center; font-size: .8rem; }
+.demo-bars i { display: block; height: 8px; width: var(--w); border-radius: 8px; background: linear-gradient(90deg, var(--gold), var(--gold2)); }
+.demo-bars b { font-family: 'DM Mono', monospace; font-weight: 400; color: var(--gold); }
+.demo-what-if { border-left: 3px solid var(--gold); padding-left: 14px; color: var(--white); }
+.demo-note { font-size: .75rem; color: var(--muted); margin-top: 10px; }
+.dissertation-card p { margin-bottom: 12px; }
+
+@media (max-width: 1100px) {
+  nav { padding: 0 24px; }
+  .nav-toggle {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; padding: 10px; background: none; border: 0; cursor: pointer;
+  }
+  .nav-toggle span { height: 2px; background: var(--gold); border-radius: 2px; transition: transform .25s, opacity .25s; }
+  nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+  nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-links {
+    display: flex; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0;
+    background: var(--navy2); border-bottom: 1px solid var(--border); padding: 8px 24px 16px;
+    max-height: calc(100vh - 64px); overflow-y: auto;
+    visibility: hidden; opacity: 0; transform: translateY(-8px);
+    transition: opacity .25s, transform .25s, visibility .25s;
+  }
+  nav.open .nav-links { visibility: visible; opacity: 1; transform: none; }
+  .nav-links a { display: block; padding: 12px 0; }
+  .hero { flex-direction: column; align-items: flex-start; justify-content: center; padding: 100px 24px 60px; }
+  .hero-stats {
+    position: relative; right: auto; top: auto; transform: none;
+    flex-direction: row; flex-wrap: wrap; gap: 28px; margin-top: 48px;
+  }
+  .stat-item { text-align: left; }
+  .stat-val { font-size: 2rem; }
+}
+@media (max-width: 900px) {
+  .journey { grid-template-columns: 1fr; }
+  .demo-bars li { grid-template-columns: 1fr 52px; }
+  .demo-bars li span { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition: none !important; }
+}
+
+/* ── LIGHT THEME ── */
+section[id] { box-shadow: 0 0 0 100vmax var(--navy); clip-path: inset(0 -100vmax); background: var(--navy); }
+#experience, #projects, #education { box-shadow: 0 0 0 100vmax var(--navy3); background: var(--navy3); }
+.section-divider { display: none; }
+.hero-bg {
+  background:
+    radial-gradient(circle 420px at 82% 28%, #0f766e26, transparent 70%),
+    radial-gradient(circle 360px at 62% 82%, #e0613f24, transparent 70%),
+    radial-gradient(circle 300px at 4% 12%, #f2b84b26, transparent 70%);
+}
+.hero-grid { opacity: .5; -webkit-mask-image: linear-gradient(#000, transparent); mask-image: linear-gradient(#000, transparent); }
+.hero h1 span, .hero-promise em, .section-title .accent { color: var(--coral); }
+.hero-bio { font-size: 1.05rem; }
+.hero-stats { gap: 16px; }
+.stat-item {
+  background: #ffffffd9; border: 1px solid var(--border); border-radius: 16px;
+  padding: 18px 26px; min-width: 210px; box-shadow: 0 14px 34px #14213d12;
+}
+.section-label, .section-label::before { color: var(--coral); }
+.section-label::before { background: var(--coral); }
+.btn-primary { box-shadow: 0 10px 24px #0f766e40; }
+.btn-outline { border-color: #cfc6b5; background: #ffffff99; }
+.about-card, .skill-cat, .project-card, .edu-card, .contact-link { box-shadow: 0 6px 22px #14213d0a; }
+.about-grid { gap: 56px; margin-bottom: 40px; }
+.about-lead {
+  font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  line-height: 1.55; color: var(--white); border-left: 4px solid var(--coral); padding-left: 24px;
+}
+.about-text p { font-size: 1.02rem; }
+.about-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.about-card { border-left-width: 1px; padding: 28px 24px; }
+.about-card h4 { font-size: .8rem; }
+.about-card p { font-size: .93rem; }
+.about-icon {
+  display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 18px;
+  border-radius: 12px; background: #0f766e14; color: var(--gold); font-size: 1.3rem;
+}
+/* the research chapter stays deep, as the turning point in the story */
+#research {
+  --navy: #10243a; --navy3: #1a334e; --card: #172e48; --border: #2b4763;
+  --white: #ffffff; --text: #dbe6f2; --muted: #a5b8cd; --gold: #5eead4; --gold2: #99f6e4;
+  background: var(--navy); box-shadow: 0 0 0 100vmax var(--navy);
+}
+#research .demo-switch button[aria-pressed="true"] { color: #10243a; }
+@media (max-width: 900px) {
+  .about-cards { grid-template-columns: 1fr; }
+  .about-grid { gap: 24px; }
+}
+@media (max-width: 1100px) {
+  .stat-item { min-width: 0; padding: 14px 18px; }
+  .hero-stats { gap: 12px; }
+}
+#research { color: var(--text); }
+@media (max-width: 600px) {
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .section-title br { display: none; }
+  .section-title .accent::before { content: ' '; }
+}
+.project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.project-links a {
+  font-size: .78rem; font-weight: 600; text-decoration: none; color: var(--gold);
+  border: 1px solid var(--gold); border-radius: 999px; padding: 7px 16px;
+  transition: background .2s, color .2s;
+}
+.project-links a:hover { background: var(--gold); color: #fff; }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
+<div class="progress" aria-hidden="true"></div>
 <nav>
-  <div class="nav-logo">Otu Samuel Jacob</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+  <a href="#top" class="nav-logo">Otu Samuel Jacob</a>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#story">About</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Product &amp; AI Leader</div>
     <h1>Otu Samuel <span>Jacob</span></h1>
     <div class="hero-title-line">Digital Product Manager &nbsp;·&nbsp; Fintech &nbsp;·&nbsp; AI &amp; Data</div>
+    <p class="hero-promise">From banking products to <em>AI that explains itself.</em></p>
     <p class="hero-bio">
-      Results-driven product leader with a decade of experience delivering digital banking solutions across mobile, POS, and internet banking. Currently deepening expertise in Data Science and AI to build the next generation of intelligent financial products.
+      I've spent 6 years building the ways people bank and pay: on their phones, at the till and online. With an MSc in Data Science, earned with Distinction, I'm now building financial products that are smarter and easier to trust.
     </p>
     <div class="hero-ctas">
-      <a href="#experience" class="btn-primary">View Experience</a>
-      <a href="#contact" class="btn-outline">Get in Touch</a>
+      <a href="#story" class="btn-primary">Read My Story</a>
+      <a href="tel:+447827210946" class="btn-outline">Contact Me</a>
     </div>
   </div>
   <div class="hero-stats">
     <div class="stat-item">
-      <div class="stat-val">1M+</div>
+      <div class="stat-val" data-count="1" data-suffix="M+">1M+</div>
       <div class="stat-lbl">Users Acquired</div>
     </div>
     <div class="stat-item">
-      <div class="stat-val">120%</div>
+      <div class="stat-val" data-count="120" data-suffix="%">120%</div>
       <div class="stat-lbl">YoY Transaction Growth</div>
     </div>
     <div class="stat-item">
-      <div class="stat-val">300%</div>
+      <div class="stat-val" data-count="300" data-suffix="%">300%</div>
       <div class="stat-lbl">MoM Volume Growth</div>
     </div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="story">
   <div class="section-label">About Me</div>
-  <div class="section-title">Building Products That<br>Move the Needle</div>
+  <h2 class="section-title">I turn banking problems into <br><span class="accent">products people trust.</span></h2>
   <div class="about-grid reveal">
+    <p class="about-lead">I'm a digital product and project manager in Liverpool, with a background in mobile banking, POS acquiring and internet banking at financial institutions in Nigeria.</p>
     <div class="about-text">
-      <p>
-        I am a Digital Product and Project Management professional based in Liverpool, UK, with a strong track record in mobile banking, POS acquiring, and internet banking across leading financial institutions in Nigeria.
-      </p>
-      <p>
-        My approach combines rigorous business analysis with agile delivery — translating complex stakeholder requirements into digital products that customers love and regulators trust. I have led teams from concept through launch, consistently delivering measurable growth.
-      </p>
-      <p>
-        I am currently pursuing an MSc in Data Science &amp; Big Data Analytics at Wrexham University, integrating machine learning and AI capabilities into my product strategy toolkit to stay ahead in an increasingly data-driven industry.
-      </p>
-    </div>
-    <div class="about-cards">
-      <div class="about-card">
-        <h4>Product Philosophy</h4>
-        <p>User outcomes first. Data-informed decisions. Compliance-conscious delivery.</p>
-      </div>
-      <div class="about-card">
-        <h4>Current Focus</h4>
-        <p>AI-augmented product management · Generative AI applications in fintech · Data-driven growth strategies.</p>
-      </div>
-      <div class="about-card">
-        <h4>Location</h4>
-        <p>Liverpool, United Kingdom — open to remote and hybrid opportunities globally.</p>
-      </div>
+      <p>I start with what the customer and the business need, then work with teams from first idea to launch, so that what we ship is useful, compliant and measurable.</p>
+      <p>In September 2026 I completed an MSc in Data Science &amp; Big Data Analytics with <strong>Distinction</strong>. It lets me ask better questions of data and bring AI into products with a clear view of what it can and cannot do.</p>
     </div>
   </div>
+  <div class="about-cards reveal">
+    <div class="about-card">
+      <span class="about-icon" aria-hidden="true">◎</span>
+      <h4>What I believe</h4>
+      <p>User outcomes come first. Decisions follow the data. Compliance is built in from the start.</p>
+    </div>
+    <div class="about-card">
+      <span class="about-icon" aria-hidden="true">✦</span>
+      <h4>What I'm exploring</h4>
+      <p>AI in product management, generative AI in fintech and data-driven growth.</p>
+    </div>
+    <div class="about-card">
+      <span class="about-icon" aria-hidden="true">⌖</span>
+      <h4>Where I am</h4>
+      <p>Liverpool, United Kingdom. Open to remote and hybrid roles worldwide.</p>
+    </div>
+  </div>
+  <ol class="journey reveal">
+    <li><span class="j-year">2017</span><strong>Economics</strong><p>Graduated in Economics from Oduduwa University.</p></li>
+    <li><span class="j-year">2020 onwards</span><strong>Banking products</strong><p>Digital, POS and mobile banking products at FSDH, Ecobank and TAJBank.</p></li>
+    <li><span class="j-year">2026</span><strong>Data &amp; AI</strong><p>MSc in Data Science with Distinction, researching explainable fraud detection.</p></li>
+  </ol>
 </section>
 
 <div class="section-divider"></div>
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="section-label">Work Experience</div>
-  <div class="section-title">Career Timeline</div>
+  <div class="section-label">Chapter One · The Builder</div>
+  <div class="section-title">Building Where Money Moves</div>
   <div class="timeline">
 
     <div class="timeline-item reveal">
@@ -506,9 +683,147 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <div class="section-divider"></div>
 
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-label">Chapter Two · The Question</div>
+  <div class="section-title">An Alert Says “Suspicious”. <br>It Doesn't Say Why.</div>
+  <p class="chapter-intro reveal">A fraud analyst may have only moments to decide. A score alone cannot tell them whether to trust it. That gap became my MSc research. Switch between the two views to see the difference an explanation makes.</p>
+
+  <div class="alert-demo reveal">
+    <div class="demo-switch" role="group" aria-label="Choose alert view">
+      <button type="button" data-view="plain" aria-pressed="true">Score only</button>
+      <button type="button" data-view="explained" aria-pressed="false">With explanation</button>
+    </div>
+    <div class="demo-card" aria-live="polite">
+      <div class="demo-head">
+        <span class="demo-flag">Blocked</span>
+        <span>Mobile Banking · NGN 495,886</span>
+        <span class="demo-score">Fraud probability 0.89</span>
+      </div>
+      <div class="demo-plain">
+        <p>No further information. The analyst has to investigate the account to find out why.</p>
+      </div>
+      <div class="demo-explained" hidden>
+        <p>The amount is significantly above this customer's typical range, and spending over the last 24 hours is high.</p>
+        <ul class="demo-bars">
+          <li><span>Transaction amount</span><i style="--w:100%"></i><b>+0.137</b></li>
+          <li><span>24-hour spend</span><i style="--w:76%"></i><b>+0.104</b></li>
+          <li><span>Amount vs usual</span><i style="--w:69%"></i><b>+0.095</b></li>
+        </ul>
+        <p class="demo-what-if">It would not be flagged if the amount were below about NGN 170,000.</p>
+      </div>
+    </div>
+    <p class="demo-note">A test-set example from my dissertation, using synthetic data.</p>
+  </div>
+
+  <div class="cert-title projects-subtitle">MSc Dissertation · Wrexham University · 2026</div>
+  <div class="project-card dissertation-card reveal">
+    <h3>Explainable AI with Human-in-the-Loop Feedback for Real-Time Fraud Detection in Nigerian Inter-Bank Payment Systems</h3>
+    <p><strong>The problem:</strong> fraud models can flag a transaction without telling the analyst why, and they do not learn from the analyst's decision.</p>
+    <p><strong>What I did:</strong></p>
+    <ul class="tl-points">
+      <li>Prepared 1,000,000 synthetic transactions calibrated to NIBSS statistics, with only 3,000 fraud cases, and tested on later months than the models trained on.</li>
+      <li>Built and compared detection models using Isolation Forest, Random Forest, XGBoost and ADASYN oversampling.</li>
+      <li>Added SHAP explanations in plain language, with "what would need to change" counterfactuals for each transaction.</li>
+      <li>Designed a feedback loop that sends borderline cases to analysts and retrains the model on their answers, and evaluated it in simulation.</li>
+    </ul>
+    <p class="dissertation-results"><strong>Results:</strong> the best model (XGBoost) caught 66% of fraud cases in the test period with no false positives. Explanations were produced in about 340 ms at the 95th percentile. In the simulated feedback loop, the share of fraud blocked automatically rose from 44.5% to 70.4%.</p>
+    <div class="project-metric">Tools: Python · XGBoost · Random Forest · Isolation Forest · SHAP</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Chapter Three · The Proof</div>
+  <div class="section-title">Delivered Impact</div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-num">01</div>
+      <h3>MyTAJ Mobile Banking App</h3>
+      <p>Led end-to-end product lifecycle for TAJBank's flagship mobile app — from strategy and design through launch and growth. Oversaw app redesign aligned to international digital banking standards.</p>
+      <div class="project-metric">↑ 35% user growth · 1M+ customers · 120% YoY transaction volume</div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">02</div>
+      <h3>Lagos ADIRE POS Deployment</h3>
+      <p>Managed the full deployment of 55 POS terminals for the Lagos ADIRE project at Ecobank, supporting local merchant communities with digital payment infrastructure.</p>
+      <div class="project-metric">✓ 100% revenue success · Merchant adoption &amp; engagement uplift</div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">03</div>
+      <h3>API-as-a-Service Platform</h3>
+      <p>Introduced API-as-a-Service at FSDH Merchant Bank, unlocking new institutional revenue channels and enabling rapid digital integration for partners and clients.</p>
+      <div class="project-metric">↑ 300% MoM POS transaction growth · New revenue streams opened</div>
+    </div>
+  </div>
+
+  <div class="cert-title projects-subtitle">Machine Learning Projects</div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-num">04</div>
+      <h3>Digital Bank Churn Predictor</h3>
+      <p>Built an end-to-end system that estimates whether a bank customer is likely to leave: feature engineering, comparison of Logistic Regression, Random Forest and XGBoost, and a web app that scores a customer profile.</p>
+      <div class="project-metric">Tuned XGBoost on test data: 84% accuracy · 0.85 ROC AUC<br>Tools: Python · XGBoost · SMOTE · Streamlit</div>
+      <div class="project-links"><a href="https://churn2predictor.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a><a href="https://github.com/otujacob/churn_predictor" target="_blank" rel="noopener">Code ↗</a></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">05</div>
+      <h3>Credit Card Customer Churn</h3>
+      <p>Led a nine-person capstone team at TS Academy (Group 29) analysing 10,127 credit card customers, from feature engineering and customer segmentation to model comparison and retention recommendations.</p>
+      <div class="project-metric">Group project · Team lead<br>Best model, Gradient Boosting: 0.90 F1 · 0.99 ROC AUC</div>
+      <div class="project-links"><a href="https://github.com/otujacob/Credit-Card-Customer-Churn" target="_blank" rel="noopener">Code ↗</a></div>
+    </div>
+  </div>
+
+  <div class="cert-title projects-subtitle">MSc Data Science Coursework · Wrexham University</div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-num">06</div>
+      <h3>Banking Customer Churn Analysis</h3>
+      <p>Cleaned 10,000 customer records in Excel and built a Power BI dashboard to show where churn concentrates by country, gender and age, with retention recommendations for each high-risk group.</p>
+      <div class="project-metric">20.4% churn overall · 32.4% in Germany · 56.2% at ages 51–60<br>Tools: Excel · Power BI</div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">07</div>
+      <h3>NYC Airbnb: Maps &amp; Sentiment</h3>
+      <p>Mapped an 800-listing sample by nightly price to compare the five boroughs, then classified the sentiment of 48,879 listing names and visualised the language hosts use.</p>
+      <div class="project-metric">47.6% positive · 47.6% neutral · 4.8% negative<br>Tools: Python · Folium · TextBlob · WordCloud · Matplotlib</div>
+      <div class="project-links"><a href="https://github.com/otujacob/Visualising-Geospatial-Data" target="_blank" rel="noopener">Map code ↗</a></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">08</div>
+      <h3>Mobile App Analytics &amp; User Behaviour</h3>
+      <p>Explored Google Play Store data to see how installs, reviews, ratings and app size relate, using distribution plots, a correlation heatmap and principal component analysis.</p>
+      <div class="project-metric">Installs and reviews move together; ratings only weakly track installs</div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">09</div>
+      <h3>Hospital Database Design</h3>
+      <p>Designed a relational database for a hospital covering patients, staff, wards, admissions, operations and specialist care: entity-relationship diagram, schema with integrity constraints, and SQL for management questions.</p>
+      <div class="project-metric">10 tables · 10 management queries<br>Tools: SQL · ER modelling</div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">10</div>
+      <h3>Big Data Architecture for Predictive Healthcare</h3>
+      <p>Proposed a hybrid streaming and lakehouse design for readmission prediction and early sepsis warning, weighing the trade-offs alongside privacy, security and fairness obligations under GDPR.</p>
+      <div class="project-metric">Design study: Kafka · Spark · Delta Lake · Cassandra · MLflow</div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-num">11</div>
+      <h3>Weighted Anchored Densest Subgraph</h3>
+      <p>Implemented a greedy graph algorithm in object-oriented Python to find dense groups around chosen anchor nodes, with unit tests and a time and space complexity analysis.</p>
+      <div class="project-metric">Tools: Python · NetworkX · Matplotlib</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- SKILLS -->
 <section id="skills">
-  <div class="section-label">Core Competencies</div>
+  <div class="section-label">Chapter Four · The Toolkit</div>
   <div class="section-title">Skills &amp; Expertise</div>
   <div class="skills-grid">
     <div class="skill-cat reveal">
@@ -542,6 +857,12 @@ footer a { color: var(--gold); text-decoration: none; }
         <span class="skill-tag">Generative AI</span>
         <span class="skill-tag">Machine Learning</span>
         <span class="skill-tag">Big Data</span>
+        <span class="skill-tag">Explainable AI</span>
+        <span class="skill-tag">SHAP</span>
+        <span class="skill-tag">XGBoost</span>
+        <span class="skill-tag">Fraud Detection</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Power BI</span>
       </div>
     </div>
     <div class="skill-cat reveal">
@@ -579,40 +900,6 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <div class="section-divider"></div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-label">Selected Projects</div>
-  <div class="section-title">Delivered Impact</div>
-  <div class="projects-grid">
-    <div class="project-card reveal">
-      <div class="project-num">01</div>
-      <h3>MyTAJ Mobile Banking App</h3>
-      <p>Led end-to-end product lifecycle for TAJBank's flagship mobile app — from strategy and design through launch and growth. Oversaw app redesign aligned to international digital banking standards.</p>
-      <div class="project-metric">↑ 35% user growth · 1M+ customers · 120% YoY transaction volume</div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">02</div>
-      <h3>Lagos ADIRE POS Deployment</h3>
-      <p>Managed the full deployment of 55 POS terminals for the Lagos ADIRE project at Ecobank, supporting local merchant communities with digital payment infrastructure.</p>
-      <div class="project-metric">✓ 100% revenue success · Merchant adoption &amp; engagement uplift</div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">03</div>
-      <h3>API-as-a-Service Platform</h3>
-      <p>Introduced API-as-a-Service at FSDH Merchant Bank, unlocking new institutional revenue channels and enabling rapid digital integration for partners and clients.</p>
-      <div class="project-metric">↑ 300% MoM POS transaction growth · New revenue streams opened</div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">04</div>
-      <h3>NYC Airbnb Geospatial Analysis</h3>
-      <p>Academic project applying Python, Folium, and Matplotlib to analyse 48,895 Airbnb listings across NYC's five boroughs — revealing pricing patterns, room-type distributions, and spatial inequalities.</p>
-      <div class="project-metric">Tools: Python · Leaflet.js · Matplotlib · Data Science (MSc)</div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-label">Education &amp; Certifications</div>
@@ -621,7 +908,7 @@ footer a { color: var(--gold); text-decoration: none; }
     <div class="edu-card">
       <div class="deg">MSc Data Science &amp; Big Data Analytics</div>
       <div class="school">Wrexham University, UK</div>
-      <div class="year">In Progress — Expected 2026</div>
+      <div class="year">Distinction · Completed September 2026</div>
     </div>
     <div class="edu-card">
       <div class="deg">B.Sc. Economics (Second Class Upper)</div>
@@ -646,8 +933,8 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label">Contact</div>
-  <div class="section-title">Let's Connect</div>
+  <div class="section-label">Epilogue</div>
+  <div class="section-title">Let's Write the Next Chapter</div>
   <div class="contact-grid">
     <div class="contact-text">
       <p>Whether you are looking for an experienced product leader, exploring collaboration opportunities, or simply want to connect — I would love to hear from you.</p>
@@ -667,20 +954,20 @@ footer a { color: var(--gold); text-decoration: none; }
       <div class="form-row">
         <div class="form-group">
           <label>Name</label>
-          <input type="text" placeholder="Your name" required>
+          <input type="text" name="name" placeholder="Your name" required>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" placeholder="your@email.com" required>
+          <input type="email" name="email" placeholder="your@email.com" required>
         </div>
       </div>
       <div class="form-group">
         <label>Subject</label>
-        <input type="text" placeholder="How can I help?">
+        <input type="text" name="subject" placeholder="How can I help?">
       </div>
       <div class="form-group">
         <label>Message</label>
-        <textarea rows="5" placeholder="Your message..."></textarea>
+        <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
       </div>
       <button type="submit" class="form-submit">Send Message</button>
     </form>
@@ -689,7 +976,7 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- FOOTER -->
 <footer>
-  <div>© 2025 Otu Samuel Jacob. All rights reserved.</div>
+  <div>© 2026 Otu Samuel Jacob. All rights reserved.</div>
   <div>Built for growth &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/otu-jacob" target="_blank">LinkedIn</a></div>
 </footer>
 
@@ -706,31 +993,65 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 revealEls.forEach(el => observer.observe(el));
 
-// Nav active
+// Progress bar and active menu link
+const progress = document.querySelector('.progress');
 const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
+const navLinks = document.querySelectorAll('.nav-links a');
+function onScroll() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
   let current = '';
   sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
   });
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
-  });
-});
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
-// Form submit
+// Phone menu
+const nav = document.querySelector('nav');
+const toggle = document.querySelector('.nav-toggle');
+function setMenu(open) {
+  nav.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', open);
+  toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+}
+toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+navLinks.forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+// Fraud alert demo
+const views = document.querySelectorAll('.demo-switch button');
+views.forEach(btn => btn.addEventListener('click', () => {
+  views.forEach(b => b.setAttribute('aria-pressed', b === btn));
+  document.querySelector('.demo-plain').hidden = btn.dataset.view !== 'plain';
+  document.querySelector('.demo-explained').hidden = btn.dataset.view !== 'explained';
+}));
+
+// Count up the headline numbers
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = Number(el.dataset.count);
+    let start;
+    requestAnimationFrame(function step(t) {
+      start = start || t;
+      const p = Math.min((t - start) / 1600, 1);
+      el.textContent = Math.max(Math.round(target * p), 1) + el.dataset.suffix;
+      if (p < 1) requestAnimationFrame(step);
+    });
+  });
+}
+
+// Form submit: opens the visitor's email app with the message filled in
 function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Message Sent ✓';
-  btn.style.background = '#2a6ef5';
-  btn.style.color = '#fff';
-  setTimeout(() => {
-    btn.textContent = 'Send Message';
-    btn.style.background = '';
-    btn.style.color = '';
-    e.target.reset();
-  }, 3000);
+  const data = new FormData(e.target);
+  const subject = data.get('subject') || 'Portfolio enquiry from ' + data.get('name');
+  const body = data.get('message') + '\n\nFrom: ' + data.get('name') + ' (' + data.get('email') + ')';
+  window.location.href = 'mailto:otujacob4@gmail.com'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
 }
 </script>
 </body>
